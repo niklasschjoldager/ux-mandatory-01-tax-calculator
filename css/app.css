@@ -53,6 +53,12 @@ body {
   width: 100%;
 }
 
+.c-form__control {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
 .c-form__label {
   display: grid;
   gap: 0.25rem;
