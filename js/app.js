@@ -12,11 +12,21 @@ taxForm.addEventListener("submit", handleTaxCalculator)
 
 function handleTaxCalculator(event) {
   event.preventDefault()
-
+  hideErrors()
   const { monetaryAmount, taxPercentage } = getUserInputs()
+  const { isFormValid, errors } = getFormState(monetaryAmount, taxPercentage)
+
+  if (isFormValid) {
+    const { taxAmount, finalAmount } = getTaxCalculations(monetaryAmount, taxPercentage)
+    displayResult(taxAmount, finalAmount)
+  } else {
+    displayErrors(errors)
+  }
+}
+
+function getFormState(monetaryAmount, taxPercentage) {
   const errors = []
   let isFormValid = true
-  hideErrors()
 
   if (taxPercentage < TAX_PERCENTAGE_MIN) {
     errors.push({
@@ -42,12 +52,7 @@ function handleTaxCalculator(event) {
     isFormValid = false
   }
 
-  if (isFormValid) {
-    const { taxAmount, finalAmount } = getTaxCalculations(monetaryAmount, taxPercentage)
-    displayResult(taxAmount, finalAmount)
-  } else {
-    displayErrors(errors)
-  }
+  return { isFormValid: isFormValid, errors: errors }
 }
 
 function getTaxCalculations(monetaryAmount, taxPercentage) {
