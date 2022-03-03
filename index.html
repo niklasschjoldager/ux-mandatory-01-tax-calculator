@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="o-container">
+      <div class="o-grid">
+        <div class="c-box">
+          <h1>Tax calculator</h1>
+          <form class="c-form js-tax-calculator-form" name="Tax calculator" action="#">
+            <div class="c-form__control">
+              <label class="c-form__label" for="monetary-amount">Monetary amount</label>
+              <input
+                class="c-form__input js-input-monetary-amount"
+                type="number"
+                name="monetary-amount"
+                id="monetary-amount"
+                value="1"
+                step="any"
+                required
+              />
+              <div class="c-error is-hidden"></div>
+            </div>
+
+            <div class="c-form__control">
+              <label class="c-form__label" for="tax-percentage">Tax percentage</label>
+              <input
+                class="c-form__input js-input-tax-percentage"
+                type="number"
+                name="tax-percentage"
+                id="tax-percentage"
+                value="1"
+                step="any"
+                required
+              />
+              <div class="c-error is-hidden"></div>
+            </div>
+
+            <button class="c-form__button" type="submit">Calculate</button>
+          </form>
+        </div>
+
+        <div class="c-result c-box">
+          <h2>Result</h2>
+          <p class="c-result__text">Tax amount: <span class="c-result__result js-tax-amount-result">0</span></p>
+          <p class="c-result__text">Final amount: <span class="c-result__result js-final-amount-result">0</span></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
